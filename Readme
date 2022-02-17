@@ -1,0 +1,24 @@
+Description: Using the gcp native cloud snapshot/Machine image, setup a backup and restore process.  
+Disaster recovery plans must specify how to avoid losing data during a disaster
+Data backups: 
+Backing up data alone involves copying a discrete amount of data from one place to another. Backups are made as part of a recovery plan either to recover from a corruption of data so that you can restore to a known good state directly in the production environment, or so that you can restore data in your DR environment if your production environment is down. Typically, data backups have a small to medium RTO and a small RPO.
+By implementing this architecture, you have a DR plan that reacts automatically to a failure without requiring manual recovery.
+Instances:
+In compute engine we can create instances –for DR (data recovery scenarios) prevent accidental deletion of data by setting delete protection flag.
+Delete protection flat
+Instance Templates:
+Instance templates used to save the configuration of VM.
+create instances with the instance templates.
+You can create instance templates using custom images or based on existing vm instances 
+Managed Instance groups:
+this are work with cloud load balancing
+ to distribute traffic to groups of identically configured instances that are copied across zones. Managed instance groups allow for features like autoscaling and autohealing, where the managed instance group can delete and recreate instances automatically
+Persistent Disks and Snapshots:
+Persistent disks are network stoarges which s independent of vm instances. we can detachable and we can access even deletion of vm instances
+You can take incremental backups or snapshots of Compute Engine VMs that you can copy across regions and use to recreate persistent disks in the event of a disaster
+Cloud Load Balancing:
+Cloud load balancing provides high availability (HA) for the compute engine VM distributes the user requests to the set of instances
+Load balancing configures with the health checks to check whether instance having work or not for routing traffic
+Cloud Load Balancing provides a single globally accessible IP address to front your Compute Engine instances. 
+Your application can have instances running in different regions and your end users are directed to the closest set of instances. 
+In addition to providing load balancing for services that are exposed to the internet, you can configure internal load balancing for your services behind a private load-balancing IP address. This IP address is accessible only to VM instances that are internal to your VPC
